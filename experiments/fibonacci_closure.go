@@ -9,7 +9,7 @@ package main
 import "fmt"
 
 // fibonacci es una función que retorna una función que retorna un entero
-func fibonacci() func() int {
+func calFibonacci() func() int {
 	fib1, fib2 := 0, 1
 	return func() int {
 		fib := fib1
@@ -18,9 +18,9 @@ func fibonacci() func() int {
 	}
 }
 
-func main() {
+func fibonacciClosure() {
 	// f es nuestra "instancia", va guardando el estado
-	f := fibonacci()
+	f := calFibonacci()
 	for i := 0; i < 10; i++ {
 		fmt.Printf("%v ", f())
 	}

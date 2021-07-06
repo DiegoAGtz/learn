@@ -1,7 +1,9 @@
 package main
 
 // Importar esta libreria con go get
-import "golang.org/x/tour/pic"
+import (
+	"golang.org/x/tour/pic"
+)
 
 func Pic(dx, dy int) [][]uint8 {
 	res := [][]uint8{}
@@ -15,6 +17,7 @@ func Pic(dx, dy int) [][]uint8 {
 	return res
 }
 
-func main() {
+func slides() {
 	pic.Show(Pic)
+
 }

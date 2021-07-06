@@ -6,7 +6,7 @@ import (
     "bufio"
 )
 
-func main() {
+func scan2() {
 
     scanner := bufio.NewScanner(os.Stdin)
     fmt.Print("Ingrese un mensaje: ")

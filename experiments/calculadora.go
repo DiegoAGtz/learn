@@ -8,7 +8,7 @@ import (
     "strings"
 )
 
-func main() {
+func calculadora() {
 
     scanner := bufio.NewScanner(os.Stdin)
     fmt.Print("Ingrese una operación, por ejemplo (2 + 3): ")

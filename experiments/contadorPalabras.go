@@ -1,4 +1,5 @@
 package main
+
 import (
     "fmt"
     "strings"
@@ -6,7 +7,7 @@ import (
     "bufio"
 )
 
-func main() {
+func contadorPalabras() {
     // frase := "Hola que tal, como están todos. Tal es el caso de este texto que usamos para probar nuestro programa"
     // frase := "Saludos a todos los presentes. Como están los presentes en este código?¿, además, vamos a saludar con muchos saludos a los que nos acompañan aquí aquí aquí"
     fmt.Println("Este es un contador de palabras.")

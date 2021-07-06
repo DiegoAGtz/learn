@@ -7,7 +7,7 @@ import (
     "strconv"
 )
 
-func main() {
+func fibonacci() {
     fmt.Println("Programa que calcula los primeros n números de la serie de fibonacci")
     fmt.Print("Ingrese la cantidad de elementos a calcular: ")
 

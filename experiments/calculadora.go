@@ -1,3 +1,11 @@
+/*
+    Este programa realiza la suma de dos o más números introducids
+    desde la linea de comandos.
+    El programa se encarga de realizar algunas comprobaciones en los
+    datos insertados de modo que únicamente acepta numeros enteros y
+    da igual si, por ejemplo, se deja un espacio entre operaciones o
+    se realiza sin espacio alguno.
+*/
 package main
 
 import (

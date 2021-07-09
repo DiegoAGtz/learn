@@ -1,3 +1,9 @@
+/*
+    Este ejemplo realiza el conteo de las palabras introducidas desde
+    la terminal las cuales sean iguales, es decir, las palabras:
+        Ejemplo | EJEMPLO | EjEmPlO | etc...
+    son iguales.
+*/
 package main
 
 import (

@@ -1,19 +1,19 @@
 package main
 
 import (
-    "fmt"
-    "os"
-    "bufio"
+	"bufio"
+	"fmt"
+	"os"
 )
 
 func scan2() {
 
-    scanner := bufio.NewScanner(os.Stdin)
-    fmt.Print("Ingrese un mensaje: ")
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Print("Ingrese un mensaje: ")
 
-    scanner.Scan()
+	scanner.Scan()
 
-    s1 := scanner.Text()
+	s1 := scanner.Text()
 
-    fmt.Printf("El mensaje escrito es: \t%v\n", s1)
+	fmt.Printf("El mensaje escrito es: \t%v\n", s1)
 }

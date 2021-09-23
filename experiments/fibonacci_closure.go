@@ -13,7 +13,7 @@ func calFibonacci() func() int {
 	fib1, fib2 := 0, 1
 	return func() int {
 		fib := fib1
-		fib1, fib2 = fib2, fib1 + fib2
+		fib1, fib2 = fib2, fib1+fib2
 		return fib
 	}
 }

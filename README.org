@@ -1,0 +1,2 @@
+* Learn GO
+Apuntes y ejercicios realizados para aprender los conceptos del lenguaje de programación GO.

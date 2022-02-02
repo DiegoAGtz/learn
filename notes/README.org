@@ -1,0 +1,4 @@
+#+TITLE: Notes
+#+AUTHOR: DiegoAGtz
+#+EMAIL: diegogtz3435@gmail.com
+#+DESCRIPTION: Notes for learning GO

@@ -1,0 +1,107 @@
+#+TITLE: Exercises Level 2
+#+AUTOR: DiegoAGtz
+#+DESCRIPTION: Exercises to learn GO.
+
+* Exercise 1
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    x := 42
+    fmt.Printf("El número en decimal es: %v\n", x)
+    fmt.Printf("El número en binario es: %b\n", x)
+    fmt.Printf("El número en hexadecimal es: %X\n", x)
+}
+#+END_SRC
+
+* Exercise 2
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    a := 30 == 35
+    b := 30 <= 35
+    c := 30 >= 35
+    d := 30 != 35
+    e := 30 < 35
+    f := 30 > 35
+
+    fmt.Println(a)
+    fmt.Println(b)
+    fmt.Println(c)
+    fmt.Println(d)
+    fmt.Println(e)
+    fmt.Println(f)
+}
+#+END_SRC
+
+* Exercise 3
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+const (
+    a = 30
+    b = 14.2
+    c = true
+    d = "AG"
+    e int = 13
+    f float64 = 93.8
+    g bool = false
+    h string = "DiegoAGtz"
+)
+
+func main() {
+    fmt.Printf("%T\t%T\t%T\t%T\n", a, b, c, d)
+    fmt.Printf("%T\t%T\t%T\t%T\n", e, f, g, h)
+}
+#+END_SRC
+
+* Exercise 4
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    a := 42
+    b := a << 1
+    fmt.Printf("Decimal: %v\tBinario: %b\t\tHexadecimal: %X\n", a, a, a)
+    fmt.Printf("Decimal: %v\tBinario: %b\tHexadecimal: %X\n", b, b, b)
+}
+#+END_SRC
+
+* Exercise 5
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    s1 := `Este es un strign de tipo raw string
+            como vemos interpreta, incluso, los saltos
+            de linea, tabulaciones y espacios. 
+            También es llamado, "String literal no interpretado",
+            también acepta comillas`
+
+    fmt.Println(s1)
+}
+#+END_SRC
+
+* Exercise 6
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+const (
+    _ = iota
+    a = iota + 2021
+    b
+    c
+    d
+)
+
+func main() {
+    fmt.Println(a, b, c, d)
+}
+#+END_SRC

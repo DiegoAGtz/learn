@@ -1,0 +1,286 @@
+#+TITLE: Exercises Level 6
+#+AUTOR: DiegoAGtz
+#+DESCRIPTION: Exercises to learn GO.
+
+* Exercise 1
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    fmt.Println("Función foo():", foo())
+    s, n := bar()
+    fmt.Println("Función bar():", s, n)
+}
+
+func foo() int {
+    return 42
+}
+
+func bar() (string ,int) {
+    s1 := "Hola mundo desde bar."
+    n1 := 3435
+    return s1, n1
+}
+#+END_SRC
+
+* Exercise 2
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    n1 := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+    n2 := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    
+    fmt.Println(foo(n1...))
+    fmt.Println(bar(n2))
+}
+
+func foo(x ...int) int {
+    suma := 0
+    for _, v := range x {
+        suma += v
+    }
+    return suma
+}
+
+func bar(x[] int) int {
+    suma := 0
+    for _, v := range x {
+        suma += v
+    }
+    return suma
+}
+#+END_SRC
+
+* Exercise 3
+    Funcionamiento de defer.
+    Ejecuta la función con los argumentos que se le pasan al momento
+    de llamarla.
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    a, b := 42, 10
+    defer foo(a, b)
+    
+    a = 25
+    b = 15
+
+    foo(a, b)
+    fmt.Println("Hola mundo desde la función main()")
+}
+
+func foo(a, b int) {
+    defer func() {
+        fmt.Println("Hola desde la función anónima")
+    }()
+    fmt.Println("Hola mundo desde la función foo()", a, b)
+}
+#+END_SRC
+
+* Exercise 4
+    Métodos
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+type persona struct {
+    nombre      string
+    apellido    string
+    edad        int
+}
+
+func main() {
+    p1 := persona {
+        nombre: "Diego Armando",
+        apellido: "Gutiérrez Ayala",
+        edad: 21,
+    }
+
+    p2 := persona {
+        nombre: "Anastasia",
+        apellido: "Steele",
+        edad: 20,
+    }
+    p1.presentar()
+    p2.presentar()
+}
+
+func (p persona) presentar() {
+    fmt.Println("Hola, mi nombre es:", p.nombre, p.apellido, "y tengo:", p.edad, "años")
+}
+#+END_SRC
+
+* Exercise 5
+    Interfaces.
+    Crear un tipo cuadrado y un tipo circulo.
+    Adjuntar un método a cada uno que calcule y retorne el área
+    Crear un tipo forma que defina una interfaz como cualquier cosa que tenga
+    el método área.
+    Crear una función info que toma un tipo forma e imprime el área de la misma
+
+#+BEGIN_SRC go
+package main
+import (
+    "fmt"
+    "math"
+)
+
+type cuadrado struct {
+    lado float64
+}
+
+type circulo struct {
+    radio float64
+}
+
+type forma interface {
+    area() float64
+}
+
+func main() {
+    c1 := cuadrado {
+        lado: 5,
+    }
+    
+    c2 := circulo {
+        radio: 1,
+    }
+
+    info(c1)
+    info(c2)
+}
+
+func (c cuadrado) area() float64 {
+    return c.lado * c.lado
+}
+
+func (c circulo) area() float64 {
+    return math.Pi * c.radio * c.radio
+}
+
+func info(f forma) {
+    fmt.Println("El área es:", f.area())
+}
+#+END_SRC
+
+* Exercise 6
+ Funciones anónimas
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    func() {
+        fmt.Println("Hola desde la función anónima")
+        for i:=0; i<10; i++ {
+            fmt.Println(i)
+        }
+    }()
+}
+#+END_SRC
+
+* Exercise 7
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    f := func() {
+        fmt.Println("Hola desde la función anónima")
+        for i:=0; i<10; i++ {
+            fmt.Println(i)
+        }
+    }
+
+    f()
+    fmt.Printf("%T\n", f)
+}
+#+END_SRC
+
+* Exercise 8
+    Crear una función que retorne una función.
+    Asignar la función retornada a una variable.
+    Llama la función retornada.
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    a := foo()
+
+    fmt.Println(a())
+    fmt.Println(a())
+    fmt.Println(a())
+}
+
+func foo() func() int {
+    x := 42
+    return func() int {
+        x++
+        return x
+    }
+}
+#+END_SRC
+
+* Exercise 9
+    Callbacks.
+    Pasar una función a otra función como argumento
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    g := func (xi []int) int {
+        if len(xi) == 0 {
+            return 0
+        }
+        if len(xi) == 1 {
+            return xi[0]
+        }
+        return xi[0] + xi[len(xi) - 1]
+    }
+
+    x := foo(g, []int{1, 2, 3, 4, 5})
+    fmt.Println(x)
+}
+
+func foo(f func(xi []int) int, ii []int) int {
+    n := f(ii)
+    return n+1
+}
+#+END_SRC
+
+* Exercise 10
+   Closures
+   Encerrar el scope de una variable en un bloque de código
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    f := foo()
+    fmt.Println(f())
+    fmt.Println(f())
+    fmt.Println(f())
+    fmt.Println(f())
+    fmt.Println(f())
+}
+
+func foo() func() int {
+    x := 0
+    return func() int {
+        x++
+        return x
+    }
+}
+#+END_SRC

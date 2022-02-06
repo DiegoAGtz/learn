@@ -1,4 +1,22 @@
-/*
+#+TITLE: Exercises Level 7
+#+AUTOR: DiegoAGtz
+#+DESCRIPTION: Exercises to learn GO.
+
+* Exercise 1
+    Crea una variable de cualquier tipo e imprime su dirección
+    de memoria
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    a := 42
+    fmt.Println(&a)
+}
+#+END_SRC
+
+* Exercise 2
     Crea un struc persona
     Crea una función llamada "cambiame" con un *persona como
     parámetro.
@@ -10,9 +28,9 @@
     Crea un valor de tipo persona e imprimelo
     Llama a cambiame
     Vuelve a imprimir a persona
-*/
-package main
 
+#+BEGIN_SRC go
+package main
 import "fmt"
 
 type persona struct {
@@ -34,3 +52,4 @@ func cambiame(p *persona) {
     // Funciona con campos, no con métodos
     p.nombre = "Ana"
 }
+#+END_SRC

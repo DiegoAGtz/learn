@@ -1,0 +1,91 @@
+#+TITLE: Exercises Level 1
+#+AUTOR: DiegoAGtz
+#+DESCRIPTION: Exercises to learn GO.
+
+* Exercise 1
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+	x := 42
+	y := "James Bond"
+	z := true
+
+	fmt.Println(x, y, z)
+	fmt.Println(x)
+	fmt.Println(y)
+	fmt.Println(z)
+}
+#+END_SRC
+
+* Exercise 2
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+var x int
+var y string
+var z bool
+
+func main() {
+	fmt.Println(x, y, z)
+	fmt.Println("")
+	fmt.Println(holaMundo("Mensaje pasado como parametro"))
+}
+
+func holaMundo(mensaje string) string {
+	s1 := fmt.Sprintf("Hola mundo desde una funcion con el mensaje: %s", mensaje)
+	return s1
+}
+#+END_SRC
+
+* Exercise 3
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+var x int = 42
+var y string = "James Bond"
+var z bool = true
+
+func main() {
+	s := fmt.Sprintf("%v\t%v\t%v", x, y, z)
+	fmt.Println(s)
+}
+#+END_SRC
+
+* Exercise 4
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+type second int
+var x second
+
+func main() {
+	fmt.Println(x)
+	fmt.Printf("%T\n", x)
+	x = 42
+	fmt.Println(x)
+}
+#+END_SRC
+
+* Exercise 5
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+type second int
+var x second
+var y int
+
+func main() {
+	fmt.Printf("El valor de x es: %v, El tipo de x es: %T\n", x, x)
+	x = 42
+	fmt.Println(x)
+
+	y = int(x)
+	fmt.Printf("El valor de y es: %v, El tipo de y es: %T\n", y, y)
+}
+#+END_SRC

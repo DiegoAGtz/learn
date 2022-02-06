@@ -1,0 +1,186 @@
+#+TITLE: Exercises Level 5
+#+AUTOR: DiegoAGtz
+#+DESCRIPTION: Exercises to learn GO.
+
+* Exercise 1
+    Crea tu propio tipo persona el cual tendrá un tipo subyacente struct de manera
+    que pueda almacenar la siguiente data:
+        Nombre
+        Apellido
+        Sabores de helado favoritos
+    Crea dos vaclores de tipo persona. Imprime los valores, usa range sobre los sabores
+    de helado.
+
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+type persona struct {
+    nombre string
+    apellido string
+    saboresFav []string
+}
+
+func main() {
+    p1 := persona {
+        nombre: "Diego",
+        apellido: "Gutierrez",
+        // Usamos composite literal
+        saboresFav: []string{
+            "Fresa", 
+            "Vainilla", 
+            "Limon", 
+            "Galleta",
+        },
+    }
+    p2 := persona {
+        nombre: "Armando",
+        apellido: "Ayala",
+        saboresFav: []string{
+            "Galleta",
+            "Chocolate", 
+            "Coco", 
+            "Chicle", 
+            "Frutas",
+        },
+    }
+
+    fmt.Println(p1.nombre, p1.apellido)
+    for _, v := range p1.saboresFav {
+        fmt.Printf("\t%v\n", v)
+    }
+    fmt.Println(p2.nombre, p2.apellido)
+    for _, v := range p2.saboresFav {
+        fmt.Printf("\t%v\n", v)
+    }
+    
+}
+#+END_SRC
+
+* Exercise 2
+    Usa el código del ejemplo anterior y almacena los valores de tipo persona en
+    un mapa con la llave apellido. Accede a cada valor en el mapa. Imprime los valores.
+    Imprime también los valores haciendo range sobre el slice.
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+type persona struct {
+    nombre string
+    apellido string
+    saboresFav []string
+}
+
+func main() {
+    p1 := persona {
+        nombre: "Diego",
+        apellido: "Gutierrez",
+        // Usamos composite literal
+        saboresFav: []string{
+            "Fresa", 
+            "Vainilla", 
+            "Limon", 
+            "Galleta",
+        },
+    }
+    p2 := persona {
+        nombre: "Armando",
+        apellido: "Ayala",
+        saboresFav: []string{
+            "Galleta",
+            "Chocolate", 
+            "Coco", 
+            "Chicle", 
+            "Frutas",
+        },
+    }
+
+    m := map[string]persona {
+        p1.apellido: p1,
+        p2.apellido: p2,
+    }
+
+    for _, item := range m {
+        fmt.Println(item.nombre, item.apellido)
+        for _, v := range item.saboresFav {
+            fmt.Println("\t", v)
+        }
+        fmt.Println("-----------------")
+    }
+}
+#+END_SRC
+
+* Exercise 3
+    Crea un nuevo tipo: vehículo
+        El tipo subyacente es struct
+        Los campos:
+            puertas
+            color
+    Crea dos nuevos tipos: camión y sedán
+        El tipo subyacente de cada uno de esos tipos es un struct
+        Embebe el tipo vehículo en ambos camión y sedán
+        Dale al camión el campo cuatroRuedas el cual será un booelano
+        Dale al sedán el campo lujoso el cual será un booleano
+    Con los structs vehículo, camión y sedán
+        Usando un composite literal, crea un valor de tipo camión y asignale valor a los campos
+        Usando un composite literal, crea un valor de tipo sedan y asígnale valor a los campos
+    Imprime cada uno de los valores
+    Imprime un solo valor de cada uno de esos valores
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+type vehiculo struct {
+    puertas int
+    color string
+}
+type camion struct {
+    vehiculo
+    cuatroRuedas bool
+}
+type sedan struct {
+    vehiculo
+    lujoso bool
+}
+
+func main() {
+    mCamion := camion {
+        vehiculo: vehiculo {
+            puertas: 2,
+            color: "Rojo",
+        },
+        cuatroRuedas: true,
+    }
+    mSedan := sedan {
+        vehiculo: vehiculo {
+            puertas: 4,
+            color: "Negro",
+        },
+        lujoso: true,
+    }
+    fmt.Println(mCamion)
+    fmt.Println(mCamion.puertas)
+    fmt.Println(mSedan)
+    fmt.Println(mSedan.puertas)
+}
+#+END_SRC
+
+* Exercise 4
+    Uso de structs anonimos
+#+BEGIN_SRC go
+package main
+import "fmt"
+
+func main() {
+    mEstudiante := struct{
+        nombre string
+        edad int
+        nua int
+    }{
+        nombre: "Diego Armando",
+        edad: 20,
+        nua: 147151,
+    }
+    fmt.Println(mEstudiante)
+}
+#+END_SRC

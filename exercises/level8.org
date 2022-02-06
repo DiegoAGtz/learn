@@ -1,5 +1,128 @@
-package main
+#+TITLE: Exercises Level 8
+#+AUTOR: DiegoAGtz
+#+DESCRIPTION: Exercises to learn GO.
 
+* Exercise 1
+#+BEGIN_SRC go
+package main
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type usuario struct {
+    Nombre string
+    Edad int
+}
+
+func main() {
+    u1 := usuario {
+        Nombre: "Diego",
+        Edad: 20,
+    }
+    u2 := usuario {
+        Nombre: "Ana",
+        Edad: 19,
+    }
+    u3 := usuario {
+        Nombre: "Ani",
+        Edad: 20,
+    }
+    usuarios := []usuario{u1, u2, u3}
+    fmt.Println(usuarios)
+
+    bs, err := json.Marshal(usuarios)
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(bs)
+    fmt.Println(string(bs))
+}
+#+END_SRC
+
+* Exercise 2
+#+BEGIN_SRC go
+package main
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type usuario struct {
+    Nombre string
+    Edad int
+}
+
+func main() {
+    datos := `[{"Nombre":"Diego","Edad":20},{"Nombre":"Ana","Edad":19},{"Nombre":"Ani","Edad":20}]`
+    bs := []byte(datos)
+    var usuarios []usuario
+    err := json.Unmarshal(bs, &usuarios)
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(datos)
+    fmt.Println(usuarios)
+}
+#+END_SRC
+
+* Exercise 3
+#+BEGIN_SRC go
+package main
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
+
+type persona struct {
+    Nombre string
+    Edad int
+}
+
+func main() {
+    p1 := persona {
+        Nombre: "Diego",
+        Edad: 20,
+    }
+    p2 := persona {
+        Nombre: "Ana",
+        Edad: 20,
+    }
+    personas := []persona{p1, p2}
+    fmt.Println(personas)
+    err := json.NewEncoder(os.Stdout).Encode(personas)
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+#+END_SRC
+
+* Exercise 4
+#+BEGIN_SRC go
+package main
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+	xi := []int{5, 8, 2, 43, 17, 987, 14, 12, 21, 1, 4, 2, 3, 93, 13}
+	xs := []string{"Una", "persona", "que", "nunca", "ha", "cometido", "un", "error", "nunca", "intenta", "nada", "nuevo"}
+
+	fmt.Println(xi)
+    sort.Ints(xi)
+	fmt.Println(xi)
+
+	fmt.Println(xs)
+    sort.Strings(xs)
+	fmt.Println(xs)
+}
+#+END_SRC
+
+* Exercise 5
+#+BEGIN_SRC go
+package main
 import (
 	"fmt"
 	"sort"
@@ -87,3 +210,4 @@ func main() {
         }
     }
 }
+#+END_SRC

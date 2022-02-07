@@ -1,6 +1,7 @@
 #+TITLE: Exercises Level 1
 #+AUTOR: DiegoAGtz
 #+DESCRIPTION: Exercises to learn GO.
+#+EMAIL: diegogtz1207@gmail.com
 
 * Exercise 1
 #+BEGIN_SRC go
@@ -19,6 +20,12 @@ func main() {
 }
 #+END_SRC
 
+#+RESULTS:
+: 42 James Bond true
+: 42
+: James Bond
+: true
+
 * Exercise 2
 #+BEGIN_SRC go
 package main
@@ -30,7 +37,6 @@ var z bool
 
 func main() {
 	fmt.Println(x, y, z)
-	fmt.Println("")
 	fmt.Println(holaMundo("Mensaje pasado como parametro"))
 }
 
@@ -39,6 +45,10 @@ func holaMundo(mensaje string) string {
 	return s1
 }
 #+END_SRC
+
+#+RESULTS:
+: 0  false
+: Hola mundo desde una funcion con el mensaje: Mensaje pasado como parametro
 
 * Exercise 3
 #+BEGIN_SRC go
@@ -55,6 +65,9 @@ func main() {
 }
 #+END_SRC
 
+#+RESULTS:
+: 42	James Bond	true
+
 * Exercise 4
 #+BEGIN_SRC go
 package main
@@ -70,6 +83,11 @@ func main() {
 	fmt.Println(x)
 }
 #+END_SRC
+
+#+RESULTS:
+: 0
+: main.second
+: 42
 
 * Exercise 5
 #+BEGIN_SRC go
@@ -89,3 +107,8 @@ func main() {
 	fmt.Printf("El valor de y es: %v, El tipo de y es: %T\n", y, y)
 }
 #+END_SRC
+
+#+RESULTS:
+: El valor de x es: 0, El tipo de x es: main.second
+: 42
+: El valor de y es: 42, El tipo de y es: int

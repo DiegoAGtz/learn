@@ -1,0 +1,88 @@
+#+TITLE: Arithmetic operators
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-04 Fri>
+
+* Residuo (%) (Módulo)
+Devuelve el resto de la división entera de dos operandos.
+
+#+begin_src js
+console.log(5%2);
+#+end_src
+
+#+RESULTS:
+: 1
+: undefined
+
+* Incremento (++)
+Operador unario. Agrega uno al operando. Puede actuar como:
+ + Prefijo: Incrementa la variable y luego la devuelve.
+ + Sufijo: Devuelve la variable y luego la incrementa.
+
+#+begin_src js
+var var1 = 3;
+console.log(++var1);
+console.log(var1++);
+console.log(var1);
+#+end_src
+
+#+RESULTS:
+: 4
+: 4
+: 5
+: undefined
+
+* Decremento (--)
+Operador unario. Resta uno al operando. Puede actuar como:
+ + Prefijo: Resta la variable y luego la devuelve.
+ + Sufijo: Devuelve la variable y luego la resta.
+
+#+begin_src js
+var var1 = 3;
+console.log(--var1);
+console.log(var1--);
+console.log(var1);
+#+end_src
+
+#+RESULTS:
+: 2
+: 2
+: 1
+: undefined
+
+* Negación unaria (-)
+Devuelve la negación del operando.
+
+#+begin_src js
+var var1 = 3;
+console.log(-var1);
+#+end_src
+
+#+RESULTS:
+: -3
+: undefined
+
+* Positivo unario (+)
+Intenta convertir el operando en un número, si no lo es.
+
+#+begin_src js
+console.log(+'3');
+console.log(+true);
+#+end_src
+
+#+RESULTS:
+: 3
+: 1
+: undefined
+
+* Exponente (**)
+Calcula la base a la potencia del exponente.
+
+#+begin_src js
+console.log(2**3);
+console.log(10**-1);
+#+end_src
+
+#+RESULTS:
+: 8
+: 0.1
+: undefined

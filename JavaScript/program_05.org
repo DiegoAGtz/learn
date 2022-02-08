@@ -1,0 +1,59 @@
+#+TITLE: Conditional and type of operators
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-04 Fri>
+
+* Operador de cadena (+)
+El operador de concatenación concatena dos valores de cadena.
+
+#+begin_src js
+console.log('Mi ' + 'cadena');
+var mystring = 'alpha ';
+mystring += 'betha';
+console.log(mystring);
+#+end_src
+
+#+RESULTS:
+: Mi cadena
+: alpha betha
+: undefined
+
+* Operador condicional ternario (?:)
+El operador puede tener uno de dos valores según la condición. La sintaxis es: *condition ? val1: val2*
+Si condition es true, el operador devuelve val1, de lo contrario devuelve val2.
+
+#+begin_src js
+var age = 20;
+var sts = (age >= 18) ? 'Adulto' : 'Menor';
+console.log(sts);
+#+end_src
+
+#+RESULTS:
+: Adulto
+: undefined
+
+* Operador typeof
+Devuelve una cadena que indica el tipo de operando.
+typeof operand;
+
+#+begin_src js
+var myFunc = new Function('5 + 2');
+var shape = 'round';
+var size = 1;
+var foo = ['Apple', ' Mango', 'Orange'];
+var today = new Date();
+
+console.log(typeof myFunc);
+console.log(typeof shape);
+console.log(typeof size);
+console.log(typeof foo);
+console.log(typeof today);
+console.log(typeof x);
+#+end_src
+
+#+RESULTS:
+: function
+: string
+: number
+: object
+: object
+: undefined

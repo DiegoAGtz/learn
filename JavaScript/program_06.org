@@ -1,0 +1,38 @@
+#+TITLE: Relational operators
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-04 Fri>
+
+* in
+Devuelve true si la propiedad especificada está el en objeto especifiado.
+
+propNameorNumber in objectName
+
+Donde propNameorNumber es una expresión de cadena o numérica que representa un nombre de propiedad o índice de arreglo, y objectName es el nombre del objeto.
+
+Tenemos que especificar el número de índice, no el valor de ese índice.
+
+#+begin_src js
+var trees = ['redwood', 'bay', 'cedar', 'oak', 'maple'
+];
+console.log(0 in trees);
+console.log(3 in trees);
+console.log(6 in trees);
+console.log('bay' in trees);
+console.log('length' in trees);
+
+var myCar = {make: 'Honda', model: 'Civic', year: '2022'};
+console.log('make' in myCar);
+console.log('model' in myCar);
+console.log('year' in myCar);
+#+end_src
+
+#+RESULTS:
+: true
+: true
+: false
+: false
+: true
+: true
+: true
+: true
+: undefined

@@ -1,0 +1,45 @@
+#+TITLE: String template
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-04 Fri>
+
+* Código normal
+#+begin_src js
+var saludo = (nombre, edad) => console.log('Hola ' + nombre + ' tienes ' + edad + ' años')
+
+saludo('Ana', 22);
+#+end_src
+
+#+RESULTS:
+: Hola Ana tienes 22 años
+: undefined
+
+* String template
+Con la plantilla (template) de String se embeben las variables en la cadena para evitar la concatenación.
+Se utilian las tildes invertidas `` (Alt + 96).
+Se usan los simbolos %{} y dentro de las llaves van los nombres de las variables.
+
+#+begin_src js
+var saludo = (nombre, edad) => console.log(`Hola ${nombre} tienes ${edad} años.`)
+saludo('Ana', 22);
+#+end_src
+
+#+RESULTS:
+: Hola Ana tienes 22 años.
+: undefined
+
+Dentro de las llaves podemos ejecutar instrucciones de JS.
+
+#+begin_src js
+var saludo = (nombre, edad) => console.log(`Hola ${nombre} tienes ${edad + 3} años`);
+saludo('Ana', 22);
+
+var saludo2 = (nombre, edad) => console.log(`Hola ${nombre} eres ${edad => 18 ? 'mayor':'menor'} de edad.`);
+saludo2('Diego', 20);
+saludo2('Ana', 17);
+#+end_src
+
+#+RESULTS:
+: Hola Ana tienes 25 años
+: Hola Diego eres edad => 18 ? 'mayor':'menor' de edad.
+: Hola Ana eres edad => 18 ? 'mayor':'menor' de edad.
+: undefined

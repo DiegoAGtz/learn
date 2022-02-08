@@ -1,0 +1,123 @@
+#+TITLE: For in y For of
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-08 mar.>
+
+* For in
+Es una forma de for que itera sobre las propiedades de un objeto en un orden arbitrario.
+
+Los índices de un arreglo son solo propiedades enumerables con nombre enteros y, por lo demás, son idénticos a las propiedades generales del objeto. No hay garantía de que *for...in* devuelva los indices en un orden particular.
+
+Debido a que el orden de iteración depente de la implementación, es posible que la iteración sobre un arreglo no visite los elementos en un orden coherente. Por lo tanto, es mejor usar un ciclo for con índice numérico o el ciclo *for...of*, cuando se itera sobre arreglos donde el orden de acceso es importante.
+
+#+begin_src js
+var obj = {a:1, b:2, c:3};
+var arr = ['a', 'b', 'c'];
+var arr_obj = {0:'a', 1:'b', 2:'c'};
+
+for (const prop in obj) {
+    console.log(`obj.${prop} = ${obj[prop]}`);
+}
+
+for (const prop in arr_obj) {
+    console.log(`arr_obj.${prop} = ${arr_obj[prop]}`);
+}
+
+var dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+for (const i in dias) {
+    console.log(`El día ${i} es ${dias[i]}`);
+}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+obj.a = 1
+obj.b = 2
+obj.c = 3
+arr_obj.0 = a
+arr_obj.1 = b
+arr_obj.2 = c
+El día 0 es Lunes
+El día 1 es Martes
+El día 2 es Miércoles
+El día 3 es Jueves
+El día 4 es Viernes
+El día 5 es Sábado
+El día 6 es Domingo
+undefined
+#+end_example
+
+* For of
+Ejecuta un bloque de código para cada elemento de un objeto iterable, como son: String, Array, objetos similares a un array, Map, Set e iterables definidos por el usuario.
+
+** Arreglo
+Cada elemento del arreglo es un iterable.
+
+#+begin_src js
+let iterable = [10, 20, 30];
+for (const value of iterable) {
+    let val = value * 10;
+    console.log(val);
+}
+#+end_src
+
+#+RESULTS:
+: 100
+: 200
+: 300
+: undefined
+
+** String
+Cada caracter es un iterable.
+
+#+begin_src js
+let iterable = 'Hola mundo!';
+for (const value of iterable) {
+    console.log(value);
+}
+#+end_src
+
+** Set
+Es una colección de elementos únicos (no hay elementos repetidos):
+
+#+begin_src js
+let iterable = new Set([1, 1, 2, 2, 3, 3]);
+console.log(iterable);
+for (const value of iterable) {
+    console.log(value);
+}
+#+end_src
+
+#+RESULTS:
+: Set(3) { 1, 2, 3 }
+: 1
+: 2
+: 3
+: undefined
+
+** Map
+
+#+begin_src js
+let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
+
+for (const entry of iterable) {
+    console.log(entry);
+}
+#+end_src
+
+#+RESULTS:
+: ['a '(\, 1)]
+
+#+begin_src js
+let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
+
+for (const [key, value] of iterable) {
+    console.log(`La llave es ${key}, el valor es ${value}`);
+}
+#+end_src
+
+#+RESULTS:
+: La llave es a, el valor es 1
+: La llave es b, el valor es 2
+: La llave es c, el valor es 3
+: undefined

@@ -1,0 +1,181 @@
+#+TITLE: Operators
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-01 Tue>
+
+* Operadores de asignación
+Los operadores de asignación asignan un valor a una variable.
+Los operadores similares a *x += y* son equivalentes a *x = x + y*.
+
+| Simbolo | Operacion      |
+| +       | Suma           |
+| -       | Resta          |
+| *       | Multiplicación |
+| /       | División       |
+| %       | Residuo        |
+| **      | Exponenciación |
+| &       | AND bit a bit  |
+| \       | OR bit a bit   |
+| ^       | XOR bit a bit  |
+| &&      | AND lógico     |
+| \\      | OR lógico      |
+
+#+begin_src js
+var x = 3;
+var y;
+
+y = x;
+x += y;
+x -= y;
+x *= y;
+x /= y;
+x %= y;
+x **= y;
+x &= y;
+x |= y;
+x ^= y;
+x &&= y;
+x ||= y;
+#+end_src
+
+#+RESULTS:
+: undefined
+
+* Desestructuración
+Para asignaciones más complejas, la sintaxis de asignación de desestructuración es una expresión de JS que hace posible extraer datos/valores de arreglos u objetos.
+
+#+begin_src js
+var foo = ['one', 'two', 'three'];
+
+var one = foo[0];
+var two = foo[1];
+var three = foo[2];
+
+var [one, two, three] = foo;
+console.log(one);
+console.log(two);
+console.log(three);
+#+end_src
+
+#+RESULTS:
+: one
+: two
+: three
+: Hola mundo
+: undefined
+
+* Operadores de comparación
+JS intenta hacer la conversión de los operandos a un tipo de dato común para hacer la comparación, a menos que se le especifique lo contrario.
+
+** Igualdad
+Devuelve true si los operandos son iguales.
+
+#+begin_src js
+var var1 = 3;
+var var2 = 4;
+
+console.log(3 == var1);
+console.log('3' == var1);
+console.log(3 == '3');
+#+end_src
+
+#+RESULTS:
+: true
+: true
+: true
+: undefined
+
+** No igualdad.
+Devuelve true si los operandos no son iguales.
+
+#+begin_src js
+var var1 = 3;
+var var2 = 4;
+
+console.log(var1 != 4);
+console.log(var2 != '3');
+#+end_src
+
+#+RESULTS:
+: true
+: true
+: undefined
+
+** Estrictamente igual o no igual
+El operando *estrictamente* se aplica a los operadores de *igualdad* y *no igualdad*. Básicamente tiene la misma función con la diferencia de que ahora compara también el tipo de los datos, es decir, ya no se aplicará una conversión a un tipo común.
+
+#+begin_src js
+var var1 = 3;
+var var2 = 4;
+
+console.log(var1 === '3');
+console.log(var2 !== '3');
+#+end_src
+
+#+RESULTS:
+: false
+: true
+: undefined
+
+** Mayor que
+Devuelve true si el operando izquierdo es mayor que el derecho.
+
+#+begin_src js
+var var1 = 3;
+var var2 = 4;
+
+console.log(var1 > var2);
+console.log('12' > 2);
+#+end_src
+
+#+RESULTS:
+: false
+: true
+: undefined
+
+** Mayor o igual que
+Devuelve true si el operando izquierdo es mayor o igual que el derecho.
+
+#+begin_src js
+var var1 = 3;
+var var2 = 4;
+
+console.log(var1 >= var2);
+console.log('12' >= 2);
+#+end_src
+
+#+RESULTS:
+: false
+: true
+: undefined
+
+** Menor que
+Devuelve true si el operando izquierdo es menor que el derecho.
+
+#+begin_src js
+var var1 = 3;
+var var2 = 4;
+
+console.log(var1 < var2);
+console.log('12' < 2);
+#+end_src
+
+#+RESULTS:
+: true
+: false
+: undefined
+
+** Menor o igual que
+Devuelve true si el operando izquierdo es menor o igual que el derecho.
+
+#+begin_src js
+var var1 = 3;
+var var2 = 4;
+
+console.log(var1 <= var2);
+console.log('12' <= 2);
+#+end_src
+
+#+RESULTS:
+: true
+: false
+: undefined

@@ -1,0 +1,103 @@
+#+TITLE: Logic operators
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-04 Fri>
+
+* AND lógico (&&)
+
+expr1 && expr2
+
+Devuelve expr1 si se puede convertir a false; de lo contrario devuelve expr2.
+Por lo tanto, cuando se usa con valores boleanos, && devuelve true si ambos operandos son true; de lo contrario devuelve false.
+
+#+begin_src js
+var a1 = true && true;
+console.log(a1);
+var a2 = true && false;
+console.log(a2);
+var a3 = false && true;
+console.log(a3);
+var a4 = false && false;
+console.log(a4);
+var a5 = false && (3 == 4);
+console.log(a5);
+var a6 = 'cat' && 'Dog'
+console.log(a6);
+var a7 = false && ' cat';
+console.log(a7);
+var a8 = 'cat' && false;
+console.log(a8);
+#+end_src
+
+#+RESULTS:
+: true
+: false
+: false
+: false
+: false
+: Dog
+: false
+: false
+: undefined
+
+* OR lógico (||)
+
+expr1 || expr2
+
+Devuelve expr1 si se puede convertir a true, de lo contrario devuelve expr2.
+Por lo tanto, cuando se usa con valores boleanos, || devuelve true si alguno de los operandos es true; si ambos son falsos, devuelve false.
+
+#+begin_src js
+var o1 = true || true;
+console.log(o1);
+var o2 = true || false;
+console.log(o2);
+var o3 = false || true;
+console.log(o3);
+var o4 = false || false;
+console.log(o4);
+var o5 = false || (3 == 4);
+console.log(o5);
+var o6 = 'cat' || 'dog';
+console.log(o6);
+var o7 = false || 'cat';
+console.log(o7);
+var o8 = 'cat' || false;
+console.log(o8);
+#+end_src
+
+#+RESULTS:
+: true
+: true
+: true
+: false
+: false
+: cat
+: cat
+: cat
+: undefined
+
+* NOT lógico (!)
+
+!expr
+
+Devuelve false si su único operando se puede convertir a true; de lo contrario devuelve true.
+
+#+begin_src js
+var n1 = !true;
+console.log(n1);
+var n2 = !false;
+console.log(n2);
+var n3 = !'cat';
+console.log(n3);
+#+end_src
+
+#+RESULTS:
+: false
+: true
+: false
+: false
+: false
+: false
+: false
+: false
+: undefined

@@ -1,0 +1,110 @@
+#+TITLE: Functions
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-04 Fri>
+
+* Funciones en JS
+#+begin_src js
+function nombre(nom='Juan') {
+    console.log('Entrada a la función');
+    return 'Hola ' + nom;
+}
+var a = nombre();
+console.log(a);
+var b = nombre('Jorge');
+console.log(b);
+
+function nombreCompleto(nombre, apellido) {
+    return 'Hola ' + nombre + ' ' + apellido;
+}
+var c = nombreCompleto('Ana', 'Steel');
+console.log(c);
+#+end_src
+
+#+RESULTS:
+: Entrada a la función
+: Hola Juan
+: Entrada a la función
+: Hola Jorge
+: Hola Ana Steel
+: undefined
+
+* Funciones flecha
+(param1, param2, ...) => { expresion; }
+
+Este tipo de funciones son de tipo anónimas.
+
+#+BEGIN_EXAMPLE js
+function (a) {
+    return a + 100;
+}
+
+(a) => {
+    return a + 100;
+}
+
+(a) => a + 100;
+
+a => a + 100;
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+function (a, b ) {
+    return a + b + 100;
+}
+
+(a, b) => a + b + 100;
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+let a = 4;
+let b = 5;
+
+function () {
+    return a + b + 100;
+}
+
+() => a + b + 100;
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+function (a, b) {
+    let chunck = 42;
+    return a + b + + chunck;
+}
+
+(a, b) => {
+    let chunck = 42;
+    return a + b + chunck;
+}
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+var sumar = (a, b) => a + b;
+var res = sumar(5,4);
+console.log(res);
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+var sumar = (a, b = 50) => a + b;
+var res = sumar(5);
+console.log(res);
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+var nombre = () => 'Alberto López Juárez';
+console.log(nombre());
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+var promedio = (a, b, c) => {
+    let suma = a + b + c;
+    return suma / 3;
+}
+var res = promedio(5, 6, 7);
+#+END_EXAMPLE js
+
+#+BEGIN_EXAMPLE js
+var getPersona = id => ({id: id, nombre: 'Alicia'});
+var res = getPersona(1);
+console.log(res);
+#+END_EXAMPLE js

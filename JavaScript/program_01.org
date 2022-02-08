@@ -1,0 +1,210 @@
+#+TITLE: Declarations and data types
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-01 Tue>
+
+* Declaraciones
+Hay tres tipos de declaraciones en JS
+
+ + var: Declara variables en un ámbito (scope) local, inicializándolas con un valor opcional.
+ + let: Declara variables en un ámbito (scope) bloqu, inicializándolas con un valor opcional.
+ + const: Declara variables (constantes) de sólo lectura.
+
+** var
+var no revisa que el nombre de la variable ya se declaro.
+
+#+begin_src js
+var variable;
+console.log(variable);
+
+var nombre = 'diegoagtz';
+console.log(nombre);
+
+var nombre = 'juan';
+console.log(nombre);
+#+end_src
+
+#+RESULTS:
+: undefined
+: diegoagtz
+: juan
+: undefined
+
+** let
+let, al contrario que var, no permite declarar una variable con el mismo nombre dos veces de esta forma, let nos permite evitar errores de lógica.
+
+#+begin_src js
+let variable;
+console.log(variable);
+
+let nombre = 'diegoagtz';
+console.log(nombre);
+
+let nombre = 'juan';
+console.log(nombre);
+#+end_src
+
+#+RESULTS:
+
+** Scope
+El scope o ambiente en el cual se encuentra definida una variable es distinto entre var y let. Mientras que var tiene un scope global, al bloque de código
+en el que se define, let tiene un scope a nivel de bloque únicamente.
+
+#+begin_src js
+var nombre = 'DiegoAGtz';
+if (true) {
+  var nombre = 'Juan';
+  console.log(nombre);
+}
+console.log(nombre);
+#+end_src
+
+#+RESULTS:
+: Juan
+: Juan
+: undefined
+
+#+begin_src js
+let nombre = 'DiegoAGtz';
+if (true) {
+  let nombre = 'Juan';
+  console.log(nombre);
+}
+console.log(nombre);
+#+end_src
+
+#+RESULTS:
+: Juan
+: DiegoAGtz
+: undefined
+
+** Constantes
+Las constantes son un tipo especial de dato que declaramos y asignamos una vez y no podemos volver a asignar un valor distinto.
+#+begin_src js
+const nombre = 'DiegoAGtz';
+console.log(nombre);
+nombre = 'Juan';
+
+var nombre1 = 'DiegoAGtz';
+nombre1 = 'Juan;'
+console.log(nombre1);
+
+let nombre2 = 'DiegoAGtz';
+nombre2 = 'Juan;'
+console.log(nombre2);
+#+end_src
+
+#+RESULTS:
+
+** Definición de variables
+JS es case sensitive, distingue entre mayúsculas y minúsculas por lo que las siguientes variables son distintas:
+
+#+begin_src js
+let Casa;
+let casa;
+#+end_src
+
+#+RESULTS:
+: undefined
+
+Las variables en JS pueden empezar con:
+ + letra
+ + _ (guión bajo)
+ + $ (signo de dolar)
+
+** Tipado
+JS es un lenguaje débilmente típado y dinámico.
+Las variables en JS no están asociadas directamente con un tipo de de dato en particular y a cualquier variable se le pueden
+asignar (y reasignar) valores de todos los tipos.
+
+#+begin_src js
+let foo = 42;
+console.log('foo es un número' + foo);
+
+foo = 'bar';
+console.log('foo es un string' + foo);
+
+foo = true;
+console.log('foo es un booleano: ' + foo);
+#+end_src
+
+#+RESULTS:
+: foo es un número42
+: foo es un stringbar
+: foo es un booleano: true
+: undefined
+
+** Tipos de datos primitivos
+
+*** Boolean
+Representa una entidad lógica y puede tomar dos valores: true y false.
+
+#+begin_src js
+let bool = true;
+bool = false;
+console.log(bool);
+#+end_src
+
+#+RESULTS:
+: false
+: undefined
+
+*** Null
+Tiene exactamente el valor null.
+
+#+begin_src js
+let m = null;
+#+end_src
+
+#+RESULTS:
+: undefined
+
+*** Undefined: Una variable a la que no se le ha asignado un valor tiene el valor undefined.
+
+#+begin_src js
+let x;
+if (x == undefined) {
+  console.log('si');
+} else {
+  console.log('no');
+}
+#+end_src
+
+#+RESULTS:
+: si
+: undefined
+
+*** Number
+Es un valor en formato binario de 64 bits de doble precisión.
+
+#+begin_src js
+const n = 52.8;
+console.log(n);
+#+end_src
+
+#+RESULTS:
+: 52.8
+: undefined
+
+*** BigInt
+Es un primitivo numérico que puede representar números enteros con precisión arbitraria.
+
+#+begin_src js
+const x = 2 ** 52;
+console.log(x);
+#+end_src
+
+#+RESULTS:
+: 4503599627370496
+: undefined
+
+*** String
+Cadena de caracteres.
+
+#+begin_src js
+const s = 'DiegoAGtz';
+console.log(s);
+#+end_src
+
+#+RESULTS:
+: DiegoAGtz
+: undefined

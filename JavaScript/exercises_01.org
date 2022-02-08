@@ -1,8 +1,8 @@
-#+TITLE: Exercises
+#+TITLE: Ejercicios
 #+AUTHOR: DiegoAGtz
 #+DATE: <2022-02-08 mar.>
 
-* Exercise 1
+* Ejercicio 1
 Dados dos números (dos variables) imprimir el mayor o imprimir "ambos son iguales".
 
 #+begin_src js
@@ -22,7 +22,7 @@ if (a > b) {
 : El mayor es b, 9 > 6
 : undefined
 
-* Exercise 2
+* Ejercicio 2
 Dado un número entero decir si es par, impar o cero.
 
 #+begin_src js
@@ -39,7 +39,7 @@ if (a%2) {
 : El numero 2 es par.
 : undefined
 
-* Exercise 3
+* Ejercicio 3
 Dadas tres calificaciones como números flotantes calcular el promedio y decir si el alumno aprueba (>=7) o reprueba.
 
 #+begin_src js
@@ -55,7 +55,7 @@ console.log(`El alumno ${(prom >= 7) ? 'aprueba':'reprueba'}, promedio: ${prom}`
 : El alumno aprueba, promedio: 7.7
 : undefined
 
-* Exercise 4
+* Ejercicio 4
 Dado un total de compra, aplicar un descuento de 20% si la compra es mayor a $1000, imprimir el total que pagará el cliente.
 
 #+begin_src js
@@ -71,7 +71,7 @@ console.log(compra);
 : 1200
 : undefined
 
-* Exercise 5
+* Ejercicio 5
 Dado un total de compra, aplicar un 10% de descuento si el total está entre $1000 y $2000 (incluidos), un 20% si está entre >$2000 y $3000, un 30% si está en tre >$3000 y $4000, y un 40% si es mayor a $4000. Imprimir el total que pagará el cliente.
 
 #+begin_src js
@@ -93,7 +93,7 @@ console.log(`Usted pagara: ${compra}`);
 : Usted pagara: 2700
 : undefined
 
-* Exercise 6
+* Ejercicio 6
 Dado el número de horas que una persona trabajo en una semana calcular el salario semanal. Se le pagan $120 por hora, si trabaja hasta 40 horas a la semana. Si trabaja más de 40 horas, cada hora extra se le paga a $200.
 
 #+begin_src js
@@ -113,7 +113,7 @@ console.log(`El salario es $${salario}`);
 : El salario es $5200
 : undefined
 
-* Exercise 7
+* Ejercicio 7
 Dado un número de la semana entre 1 y 7, y que diga que día de la semana es (indicar que el día no existe si el día es menor a 1 o mayor a 7).
 
 #+begin_src js
@@ -150,5 +150,26 @@ switch (dia) {
 : El dia 5 es jueves.
 : undefined
 
-* Exercise 8
+* Ejercicio 8
 Dado un precio (flotante) y la clave (entera) de un artículo. Si la clave es 1, se le aplica un 10% al precio. Si la clave es 2, se le aplica un 20%. Cualquier otra clave deve devolver "Error". Imprimir el precio final del producto.
+
+#+begin_src js
+let precio = 155.5;
+let clave = 2;
+
+switch (clave) {
+    case 1:
+        precio = precio - precio*0.1;
+        break;
+    case 2:
+        precio = precio - precio*0.2;
+        break;
+    default:
+        console.log('Clave de producto erronea.');
+}
+console.log(`El precio del producto es: ${precio}`);
+#+end_src
+
+#+RESULTS:
+: El precio del producto es: 124.4
+: undefined

@@ -1,0 +1,63 @@
+#+TITLE: Classes
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-15 mar.>
+
+* Definición de la clase
+
+#+begin_src js
+class Curso {
+    constructor(name) {
+        this.name = name;
+    }
+
+    saludar() {
+        console.log(`Bienvenido al curso de ${this.name)`);
+    }
+}
+#+end_src
+
+* Instanaciar un objeto de la clase
+
+#+begin_src js
+let curso1 = new Curso('Tópico selecto');
+console.log(curso1.name);
+curso1.salular();
+#+end_src
+
+* Herencia
+
+#+begin_src js
+class Vehiculo {
+    constructor(marca, modelo, anio, color) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anio = anio;
+        this.color = color;
+    }
+
+    descripcion() {
+        return `Vehículo de la marca ${this.marca}, modelo ${this.modelo}, año ${this.anio}, color ${this.color}`;
+    }
+}
+
+class Camion extends Vehiculo {
+    constructor(marca, modelo, anio, color, toneladas) {
+        super(marca, modelo, anio, color);
+        this.toneladas = toneladas;
+    }
+    descripcion() {
+        return super.descripcion() + `, camión de ${this.toneladas} toneladas`;
+    }
+}
+
+let miCamion = new Camion('Mercedes Benz', 'Trucker', 2022, 'Azul', 2);
+console.log(miCamion.descripcion());
+
+let miCarro = new Vehiculo('VW', 'Jetta', 2019, 'gris');
+console.log(miCarro.descripcion());
+#+end_src
+
+#+RESULTS:
+: Vehículo de la marca Mercedes Benz, modelo Trucker, año 2022, color Azul, camión de 2 toneladas
+: Vehículo de la marca VW, modelo Jetta, año 2019, color gris
+: undefined

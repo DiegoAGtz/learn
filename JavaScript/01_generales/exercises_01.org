@@ -1,0 +1,178 @@
+#+TITLE: Ejercicios 01
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-08 mar.>
+
+* Ejercicio 1
+Dados dos números (dos variables) imprimir el mayor o imprimir "ambos son iguales".
+
+#+begin_src js
+let a = 6;
+let b = 9;
+
+if (a > b) {
+    console.log(`El mayor es a, ${a} > ${b}`);
+} else if (b > a) {
+    console.log(`El mayor es b, ${b} > ${a}`);
+} else {
+    console.log(`Ambos son iguales, ${a} == ${b}`)
+}
+#+end_src
+
+#+RESULTS:
+: El mayor es b, 9 > 6
+: undefined
+
+* Ejercicio 2
+Dado un número entero decir si es par, impar o cero.
+
+#+begin_src js
+let a = 5;
+
+console.log(`El número ${a} es ${(a%2 == 0) ? 'par' : 'impar'}`);
+
+if (a%2) {
+    console.log(`El numero ${a} es impar.`);
+} else {
+    console.log(`El numero ${a} es par.`);
+}
+#+end_src
+
+#+RESULTS:
+: El número 5 es impar
+: El numero 5 es impar.
+: undefined
+
+* Ejercicio 3
+Dadas tres calificaciones como números flotantes calcular el promedio y decir si el alumno aprueba (>=7) o reprueba.
+
+#+begin_src js
+let cal1 = 9.2;
+let cal2 = 6.5;
+let cal3 = 7.4;
+
+let prom = (cal1 + cal2 + cal3) / 3;
+console.log(`El alumno ${(prom >= 7) ? 'aprueba':'reprueba'}, promedio: ${prom}`);
+#+end_src
+
+#+RESULTS:
+: El alumno aprueba, promedio: 7.7
+: undefined
+
+* Ejercicio 4
+Dado un total de compra, aplicar un descuento de 20% si la compra es mayor a $1000, imprimir el total que pagará el cliente.
+
+#+begin_src js
+let compra = 1500;
+
+if (compra > 1000) {
+    compra = compra - compra*0.2;
+}
+console.log(compra);
+#+end_src
+
+#+RESULTS:
+: 1200
+: undefined
+
+* Ejercicio 5
+Dado un total de compra, aplicar un 10% de descuento si el total está entre $1000 y $2000 (incluidos), un 20% si está entre >$2000 y $3000, un 30% si está en tre >$3000 y $4000, y un 40% si es mayor a $4000. Imprimir el total que pagará el cliente.
+
+#+begin_src js
+let compra = 4500;
+
+if (compra >= 1000 && compra <= 2000) {
+    compra = compra - compra*0.1;
+} else if (compra > 2000 && compra <= 3000) {
+    compra = compra - compra*0.2;
+} else if (compra > 3000 && compra <= 4000) {
+    compra = compra - compra*0.3;
+} else if (compra > 4000) {
+    compra = compra - compra*0.4;
+}
+console.log(`Usted pagara: ${compra}`);
+#+end_src
+
+#+RESULTS:
+: Usted pagara: 2700
+: undefined
+
+* Ejercicio 6
+Dado el número de horas que una persona trabajo en una semana calcular el salario semanal. Se le pagan $120 por hora, si trabaja hasta 40 horas a la semana. Si trabaja más de 40 horas, cada hora extra se le paga a $200.
+
+#+begin_src js
+let hrs = 42;
+let salario = 0;
+
+if (hrs > 40) {
+    salario = 40 * 120;
+    salario += (hrs - 40) * 200;
+} else {
+    salario = hrs * 120;
+}
+console.log(`El salario es $${salario}`);
+#+end_src
+
+#+RESULTS:
+: El salario es $5200
+: undefined
+
+* Ejercicio 7
+Dado un número de la semana entre 1 y 7, y que diga que día de la semana es (indicar que el día no existe si el día es menor a 1 o mayor a 7).
+
+#+begin_src js
+let dia = 5;
+
+switch (dia) {
+    case 1:
+        console.log(`El dia 1 es domingo.`);
+        break;
+    case 2:
+        console.log(`El dia 2 es lunes.`);
+        break;
+    case 3:
+        console.log(`El dia 3 es martes.`);
+        break;
+    case 4:
+        console.log(`El dia 4 es miercoles.`);
+        break;
+    case 5:
+        console.log(`El dia 5 es jueves.`);
+        break;
+    case 6:
+        console.log(`El dia 6 es viernes.`);
+        break;
+    case 7:
+        console.log(`El dia 7 es sabado.`);
+        break;
+    default:
+        console.log(`El dia ${dia} no es valido.`);
+}
+#+end_src
+
+#+RESULTS:
+: El dia 5 es jueves.
+: undefined
+
+* Ejercicio 8
+Dado un precio (flotante) y la clave (entera) de un artículo. Si la clave es 1, se le aplica un 10% al precio. Si la clave es 2, se le aplica un 20%. Cualquier otra clave deve devolver "Error". Imprimir el precio final del producto.
+
+#+begin_src js
+let precio = 155.5;
+let clave = 2;
+
+switch (clave) {
+    case 1:
+        precio = precio - precio*0.1;
+        break;
+    case 2:
+        precio = precio - precio*0.2;
+        break;
+    default:
+        console.log('Clave de producto erronea.');
+}
+console.log(`El precio del producto es: ${precio}`);
+#+end_src
+
+#+RESULTS:
+: El precio del producto es: 124.4
+: undefined

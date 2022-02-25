@@ -1,0 +1,73 @@
+#+TITLE: Objects
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-15 mar.>
+
+* Objects
+La clase Object representa uno de los tipos de JS.
+Es usado para guardar una colección de datos definidos y entidades más complejas. Los objetos pueden ser creados utilizando el constructor Object() o la sintaxis literal de objeto.
+
+#+begin_src js
+const curso = {
+    uda: 'Tópico selecto',
+    maestro: {
+        nombre: 'Juan Carlos',
+        division: 'DICIS',
+        carrera: 'LISC'
+    },
+    alumnos: [],
+    activo: true,
+    inscribir: function(nombre) {
+        console.log(`${nombre} te has inscrito al curso ${this.uda}`);
+        this.alumnos.push(nombre);
+    },
+    listaAlumnos: function() {
+        return this.alumnos
+    }
+}
+console.log(curso);
+curso.inscribir('Ana');
+curso.inscribir('Gustavo');
+curso.inscribir('Karen');
+curso.inscribir('Angel');
+curso.inscribir('Roberto');
+console.log(curso.listaAlumnos());
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  uda: 'Tópico selecto',
+  maestro: { nombre: 'Juan Carlos', division: 'DICIS', carrera: 'LISC' },
+  alumnos: [],
+  activo: true,
+  inscribir: [Function: inscribir],
+  listaAlumnos: [Function: listaAlumnos]
+}
+Ana te has inscrito al curso Tópico selecto
+Gustavo te has inscrito al curso Tópico selecto
+Karen te has inscrito al curso Tópico selecto
+Angel te has inscrito al curso Tópico selecto
+Roberto te has inscrito al curso Tópico selecto
+[ 'Ana', 'Gustavo', 'Karen', 'Angel', 'Roberto' ]
+undefined
+#+end_example
+
+const permite la modifiación del contenido de objetos y arreglos.
+
+* Acceder y modificar las propiedades
+
+** Usando la notación punto
+
+#+begin_src js
+console.log(curso.uda);
+curso.uda = 'Sistemas de Información';
+console.log(curso.uda);
+#+end_src
+
+** Usando la notación corchetes
+Es obligatoria cuando la propiedad inicia con un dígito.
+Para valores alfabéticos se debn encerrar entre apostrofes o comillas.
+
+#+begin_src js
+console.log(curso['uda']);
+#+end_src

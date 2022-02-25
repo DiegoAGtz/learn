@@ -1,0 +1,60 @@
+#+TITLE: Conditionals
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-08 mar.>
+
+* Bloque if
+Nos permite ejecutar una u otra acción dependiendo de la situación presentada.
+
+#+begin_example js
+if (condicion 1) {
+    bloque de condición 1
+} else if {
+    bloque de condición 2
+} else if {
+    bloque de condición 3
+}
+...
+else {
+    bloque else
+}
+#+end_example
+
+#+begin_src js
+var edad = 17;
+if (edad >= 18) {
+    console.log('Mayor de edad');
+} else {
+    console.log('Menor de edad');
+}
+#+end_src
+
+#+RESULTS:
+: Menor de edad
+: undefined
+
+Usando la igualdad estricta.
+
+#+begin_src js
+var dia = 0;
+if (dia === 0){
+    console.log('Domingo');
+} else {
+    console.log('Otro día');
+}
+#+end_src
+
+#+RESULTS:
+: Domingo
+: undefined
+
+El operador ternario actúa como un bloque if else sencillo.
+
+#+begin_src js
+var dia = 1;
+var diaSemana = (dia ===  0) ? 'Domingo' : 'Otro día';
+console.log(diaSemana);
+#+end_src
+
+#+RESULTS:
+: Otro día
+: undefined

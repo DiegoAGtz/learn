@@ -1,0 +1,85 @@
+#+TITLE: Switch block
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-08 mar.>
+
+* Swtich block
+Nos permite generar un bloque 'if' de forma más compacta.
+Cada if viene representado por la instrucción case y, si queremos que la ejecución del bloque termine sin pasar a otra instrucción case, debemos colocar la instrucción break.
+Así como tenemos un else en el conditional if, en el bloque switch tenemos un default que, de no cumplirse ninguna de las condiciones planteadas, se ejecutará.
+Si se olvida un break, el script se ejecutará desde donde se cumple la condicion y se ejecutará el siguiente case, independientemente si esta condicion se cumple o no.
+
+#+begin_src js
+var fruta = 'Platanos';
+switch (fruta) {
+    case 'Naranjas':
+        console.log('El kilogramo de naranjas cuesta $20.00');
+        break;
+    case 'Manzanas':
+        console.log('El kilogramo de manzanas cuesta $45.00');
+        break;
+    case 'Platanos':
+        console.log('El kilogramo de platanos cuesta $15.00');
+        break;
+    case 'Cerezas':
+        console.log('El kilogramo de cerezas cuesta $90.00');
+        break;
+    case 'Mangos':
+    case 'Papayas':
+        console.log('El kilogramo de mangos o papayas cuesta $35.00');
+        break;
+    default:
+        console.log(`Lo sentimos, por el momento no disponemos de ${fruta}`);
+
+}
+#+end_src
+
+#+RESULTS:
+: El kilogramo de platanos cuesta $15.00
+: undefined
+
+En el siguiente ejemplo, en caso de que foo = 0, se ejecutará tanto el case 0 como el case 1 pues no existe un break que pare al case 0. No se ejecuta el case 2 pues el case 1 si contiene un break.
+
+#+begin_src js
+var foo = 0;
+switch (foo) {
+    case -1:
+        console.log('1 negativo');
+        break;
+    case 0:
+        console.log(0);
+    case 1:
+        console.log(1);
+        break;
+    case 2:
+        console.log(2);
+        break;
+    default:
+        console.log('default');
+}
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+: undefined
+
+Operación única con multiples casos.
+
+#+begin_src js
+var animal = 'Jirafa';
+switch (animal) {
+    case 'Vaca':
+    case 'Jirafa':
+    case 'Perro':
+    case 'Gato':
+        console.log('Este animal subirá al Arca de Noé.');
+        break;
+    case 'Dinosaurio':
+    default:
+        console.log('Este animal no lo hará.');
+}
+#+end_src
+
+#+RESULTS:
+: Este animal subirá al Arca de Noé.
+: undefined

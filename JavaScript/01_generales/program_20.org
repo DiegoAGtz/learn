@@ -1,0 +1,60 @@
+#+TITLE: Callback functions
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-18 vie.>
+
+* Callback Functions
+Una función callback es una función que se pasa a otra función como un argumento que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+
+#+begin_src js
+function mensaje(callback) {
+    console.log('Mensaje antes de la llamada callback()');
+    callback();
+}
+function saludo() {
+    console.log('Saludo después de la llamada al callback()');
+}
+
+mensaje(saludo);
+#+end_src
+
+#+RESULTS:
+: Mensaje antes de la llamada callback()
+: Saludo después de la llamada al callback()
+: undefined
+
+Podemos definir una función con más parámetros a parte del callback
+
+#+begin_src js
+function sumar(num1, num2, callback) {
+    let resultado = num1 + num2;
+    callback(resultado);
+}
+function salida(res) {
+    console.log(res);
+}
+sumar(5, 8, salida);
+#+end_src
+
+#+RESULTS:
+: 13
+: undefined
+
+* Funciones internas de JS
+
+** setTimeout()
+Recibe como parámetros un callback y el tiempo en milisegundos que tardará en ejecutarse el callback.
+
+#+begin_src js
+setTimeout(function() {
+    console.log('Esto se ejecuta después de 3 segundos');
+}, 3000);
+#+end_src
+
+#+RESULTS:
+: undefinedEsto se ejecuta después de 3 segundos
+
+*** Usando funciones flecha
+
+#+begin_src js
+setTimeout(() => console.log('Esto se ejecuta después de 3 segundos'), 3000);
+#+end_src

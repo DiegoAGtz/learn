@@ -1,0 +1,21 @@
+#+TITLE: Terminal input
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-11 vie.>
+
+* Instalación
+Instalamos el siguiente módulo a través de npm.
+
+#+begin_example
+npm install prompt-sync
+#+end_example
+
+* Utilización
+
+#+begin_src js
+const prompt = require('prompt-sync')();
+
+const nombre = prompt('¿Como te llamas?');
+console.log(`Hola ${nombre} ¿Cómo estás?`);
+#+end_src
+
+#+RESULTS:

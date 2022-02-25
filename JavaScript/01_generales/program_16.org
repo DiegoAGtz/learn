@@ -1,0 +1,141 @@
+#+TITLE: map, reduce (arrays)
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-15 mar.>
+
+* map()
+Crea un nuevo array con los resultados de la llamada a la función indicada, aplicada a cada uno de los elementos del array original.
+
+#+begin_src js
+var numeros = [1, 5, 10, 15];
+var dobles = numeros.map(function(x) {
+    return x * 2;
+});
+console.log(numeros);
+console.log(dobles);
+#+end_src
+
+#+RESULTS:
+: [1 (\, 5) (\, 10) (\, 15)]
+
+Math es un módulo global con funciones matemáticas
+
+#+begin_src js
+var numeros = [1, 5, 10, 15];
+var raices = numeros.map((num) => Math.sqrt(num));
+console.log(raices);
+#+end_src
+
+#+RESULTS:
+: [1 (\, 2.23606797749979) (\, 3.1622776601683795) (\, 3.872983346207417)]
+
+* reduce()
+Ejecuta una función reductora sobre cada elemento de un array, devolviendo como resultado un único valor.
+La función reductora recibe cuatro argumentos:
+ + Acumulador (acc) -> valorAnterior (resultado de la iteración previa)
+ + Valor actual (cur)
+ + Índice actual (idx)
+ + Array (src)
+
+El valor devuelto de la función se asigna al acumulador, cuyo valor se recuerda en cada iteración del array y, en última instancia, se convierte en el valor final, único y resultante.
+
+#+begin_src js
+var s = [0, 1, 2, 3, 4].reduce(function(valorAnterior, valorActual, indice, array) {
+    console.log(`Iteración ${indice}: ${valorAnterior}, ${valorActual}, ${array}`);
+    return valorAnterior + valorActual;
+});
+console.log(s);
+#+end_src
+
+#+RESULTS:
+: Iteración 1: 0, 1, 0,1,2,3,4
+: Iteración 2: 1, 2, 0,1,2,3,4
+: Iteración 3: 3, 3, 0,1,2,3,4
+: Iteración 4: 6, 4, 0,1,2,3,4
+: 10
+: undefined
+
+Si se pasa con valorInicial al llamar a reduce, entonces valorAnterior será igual a valorInicial y valorActual será igual al primer elemento del array.
+
+#+begin_src js
+var s = [0, 1, 2, 3, 4].reduce(function(valorAnterior, valorActual, indice, array) {
+    console.log(`Iteración ${indice}: ${valorAnterior}, ${valorActual}, ${array}`);
+    return valorAnterior + valorActual;
+}, 20);
+console.log(s);
+#+end_src
+
+#+RESULTS:
+: Iteración 0: 20, 0, 0,1,2,3,4
+: Iteración 1: 20, 1, 0,1,2,3,4
+: Iteración 2: 21, 2, 0,1,2,3,4
+: Iteración 3: 23, 3, 0,1,2,3,4
+: Iteración 4: 26, 4, 0,1,2,3,4
+: 30
+: undefined
+
+Si no se pasa el valorInicial, entonces valorAnterior será igual al primer valor del array y el valorActual será el segundo.
+
+** Sumatoria
+
+#+begin_src js
+var items = [0, 1, 2, 3, 4];
+s = items.reduce((total, num) => total + num);
+console.log(s);
+#+end_src
+
+#+RESULTS:
+: 10
+: undefined
+
+** Resta
+#+begin_src js
+var items = [0, 1, 2, 3, 4];
+s = items.reduce((total, num) => total - num);
+console.log(s);
+#+end_src
+
+#+RESULTS:
+: -10
+: undefined
+
+** Integrar
+Aplanar un arreglo
+
+#+begin_src js
+var arr = [[0, 1], [2, 3], [4, 5]];
+var integrado = arr.reduce((a, b) => a.concat(b));
+console.log(integrado);
+#+end_src
+
+#+RESULTS:
+: [0 (\, 1) (\, 2) (\, 3) (\, 4) (\, 5)]
+
+** Con objetos
+
+#+begin_src js
+var detalle = [
+    {
+        codigo: '123',
+        cantidad: 1
+    },
+    {
+        codigo: '741',
+        cantidad: 5
+    },
+    {
+        codigo: '321',
+        cantidad: 10
+    }
+];
+var cant = detalle.reduce((i, obj) => {
+    i.cantidad += obj.cantidad;
+    return i;
+});
+console.log(cant);
+console.log(cant.cantidad);
+#+end_src
+
+#+RESULTS:
+: { codigo: '123', cantidad: 16 }
+: 16
+: undefined

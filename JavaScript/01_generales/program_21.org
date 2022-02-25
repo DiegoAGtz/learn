@@ -1,0 +1,55 @@
+#+TITLE: Promises
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-18 vie.>
+
+* Promises
+Las promesas son utilizadas para computaciones asíncronas.
+Una promesa representa un valor que puede estar disponible ahora, en el futuro o nunca.
+
+Permite asociar manejadores que actuarán asincrónicamente sobre un eventual valor en caso de éxito, o la razon de falla en caso de una falla. Esto permite que métodos asíncronos devuelvan valores como si fueran síncronos: en vez de inmediatamente retornar el valor final, el método asíncrono devuelve una promesa de suministrar el valor en algún momento en el futuro.
+
+Una promesa se encuentra en uno de los siguientes estados:
+
+ + Pendiente (pending): Estado inicial, no cumplida ni rechazada.
+ + Cumplida (fulfilled): Significa que la operación se completo satisfactoriamente.
+ + Rechazada (rejected): Significa que la operación falló.
+ + Restablecida (settled): Ya se determinó si fue complida o rechazada.
+
+#+begin_src js
+const mensaje = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (true) {
+            resolve('Esto se ejecuta después de 3 segundos');
+        } else {
+            reject('Hubo un error');
+        }
+    }, 3000);
+});
+
+mensaje
+    .then(msj => console.log(msj))
+    .catch(error => console.log(error));
+#+end_src
+
+#+RESULTS:
+: undefinedEsto se ejecuta después de 3 segundos
+
+#+begin_src js
+const mensaje = new Promise((resolve,  reject) => {
+    let a = 5;
+    let b = 0;
+    if (b != 0) {
+        let c = a/b;
+        resolve('Se pudo hacer la operación');
+    } else {
+        reject('¡División por cero!');
+    }
+});
+
+mensaje
+    .then(msj => console.log(msj))
+    .catch(error => console.log(error));
+#+end_src
+
+#+RESULTS:
+: undefined¡División por cero!

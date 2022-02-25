@@ -1,0 +1,201 @@
+#+TITLE: Arrays
+#+AUTHOR: DiegoAGtz
+#+DATE: <2022-02-11 vie.>
+
+* Arrays
+Los arreglos son objetos similares a una lista cuyo prototipo proporciona métodos para efectuar operaciones de recorrido y de mutación.
+
+Definición
+#+begin_example js
+let fruta = ['manzana', 'banana'];
+#+end_example
+
+Son flexibles
+#+begin_example js
+let varios = ['Juan', 13, 'Ana', ['Hola', 13]];
+#+end_example
+
+Podemos definirlos a través del constructor, puede ser vacio o con elementos.
+#+begin_example js
+let vacio = new Array();
+let elementos = new Array('Jorge', 'Karen');
+let tamanio = new Arary(5);
+#+end_example
+
+** Longitud del array
+La longitud de un arreglo la podemos obtener de la siguiente
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+console.log(frutas.length);
+#+end_src
+
+#+RESULTS:
+: 2
+: undefined
+
+** Recorrer un array
+Podemos hacerlo de distintas maneras y con cada uno de los bucles existentes.
+El método forEach() ejecuta la función indicada una vez por cada elemento del array.
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+frutas.forEach((elemento, indice) => console.log(elemento, indice));
+#+end_src
+
+#+RESULTS:
+: manzana 0
+: banana 1
+: undefined
+
+** Añadir elemento(s) al final de array
+Para añadir un elemento al final de arreglo podemos utilizar lo siguiente.
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+console.log(frutas);
+frutas.push('naranja');
+console.log(frutas);
+frutas.push('pera', 'melón', 'uva');
+console.log(frutas);
+#+end_src
+
+** Añadir elemento al inicio del array
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+console.log(frutas);
+frutas.unshift('fresa');
+console.log(frutas);
+#+end_src
+
+** Eliminar el último elemento del array
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+let ultimo = frutas.pop();
+console.log(ultimo);
+console.log(frutas);
+#+end_src
+
+#+RESULTS:
+: banana
+: [ 'manzana' ]
+: undefined
+
+** Eliminar el primer elemento del array
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+let primero = frutas.shift();
+console.log(primero);
+console.log(frutas);
+#+end_src
+
+#+RESULTS:
+: manzana
+: [ 'banana' ]
+: undefined
+
+** Encontrar el ínndice de un elemento del array
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+let pos = frutas.indexOf('banana');
+console.log(pos);
+#+end_src
+
+#+RESULTS:
+: 1
+: undefined
+
+** Eliminar un único elemento mediante su posición
+Utilizamos el método splice, recibe dos elementos (posición inicial, número de elementos a eliminar).
+
+#+begin_src js
+let frutas = ['manzana', 'banana'];
+let pos = frutas.indexOf('banana');
+let elementoEliminado = frutas.splice(pos, 1);
+console.log(elementoEliminado);
+console.log(frutas);
+#+end_src
+
+** Eliminar varios elementos a partir de una posición
+
+#+begin_src js
+let vegetales = ['col', 'brócoli', 'rábano', 'zanahoria'];
+let pos = vegetales.indexOf('brócoli');
+let elementosEliminados = vegetales.splice(pos, 2);
+console.log(elementosEliminados);
+console.log(vegetales);
+#+end_src
+
+** Acceso a los elementos del array
+Las posicines de los arreglos comienzan en 0, para obtener el último elemento podemos utiliar la propiedad length del arreglo.
+
+#+begin_src js
+let arr = ['primer elemento', 'segundo elemento', 'tercer elemento', 'último elemento'];
+console.log(arr[0]);
+console.log(arr[2]);
+console.log(arr[arr.length - 1]);
+#+end_src
+
+#+RESULTS:
+: primer elemento
+: tercer elemento
+: último elemento
+: undefined
+
+** Objeto
+Los índices de un array pueden considerarse propiedades del objeto. Sin embargo, se obtendrá un error si se intenta acceder a un elemento de un array de la siguiete forma ya que el nombre de la propiedad no sería valido.
+
+#+begin_example js
+let arr = ['primer elemento', 'segundo elemento', 'tercer elemento', 'último elemento'];
+console.log(arr.0);
+console.log(arr[0]);
+#+end_example
+
+En JavaScript, las propiedades cuyo nombre comienza con un dígito no pueden referenciarse con la notación punto y deben accederse mediante la notación corchete.
+
+** Obtener varios elementos de un array
+El método slice() devueleve una copia de una parte del array dentro de un nuevo array (inicio, fin), fin *no* esta incluido).
+El array original no se modificará.
+
+#+begin_src js
+var nombres = ['Rita', 'Pedro', 'Miguel', 'Ana', 'Vanesa'];
+var masculinos = nombres.slice(1,3);
+console.log(nombres);
+console.log(masculinos);
+#+end_src
+
+** La propiedad length
+La propiedad length de un array en JavaScript está asociada con algunas propiedades numéricas.
+
+#+begin_src js
+var nombres = ['Rita', 'Pedro', 'Miguel', 'Ana', 'Vanesa'];
+console.log(nombres);
+console.log(frutas.length);
+nombres[5] = 'Diego';
+console.log(frutas.length);
+nombres[5] = 'Diego';
+#+end_src
+
+Si se da un valor entero válido para un índice se puede agregar el elemento en esa posición.
+Así mismo, si modificamos la propieda length, estaremos modificando el tamaño del arreglo.
+En este caso, esta rellenando los espacios de con elementos undefined.
+
+#+begin_src js
+var nombres = ['Rita', 'Pedro', 'Miguel', 'Ana', 'Vanesa'];
+nombres.length = 10;
+console.log(nombres);
+console.log(nombres.length);
+#+end_src
+
+De manera simiar, si se disminuye el valor de la propiedad length pueden eliminarse elementos.
+
+#+begin_src js
+var nombres = ['Rita', 'Pedro', 'Miguel', 'Ana', 'Vanesa'];
+nombres.length = 2;
+console.log(nombres);
+console.log(nombres.length);
+#+end_src
